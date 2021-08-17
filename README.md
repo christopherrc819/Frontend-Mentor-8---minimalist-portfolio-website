@@ -1,96 +1,116 @@
-# Frontend Mentor - Minimalist portfolio website
+# Frontend Mentor - Minimalist portfolio website solution
 
-![Design preview for the Minimalist portfolio website coding challenge](./preview.jpg)
+## Table of contents
 
-## Welcome! 👋
+- [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-Thanks for purchasing this premium Frontend Mentor coding challenge.
+### Links
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects. This challenge is for a portfolio website, so please do feel free to use it as your own portfolio site once you complete the challenge.
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
-The content is just dummy content for a fictional developer, so please do experiment with the content and your own images if you like.
+## My process
 
-**To do this challenge, you need a solid understanding of HTML and CSS and a basic understanding of JavaScript.**
+### Built with
 
-## The challenge
+- Semantic HTML5 markup
+- CSS custom properties
+- JavaScript
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
 
-Your challenge is to build out this multi-page portfolio website and get it looking as close to the design as possible.
+### What I learned
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
 
-Your users should be able to:
+To see how you can add code snippets, see below:
+**Proud of this responsive Image**
+```html
+<img class="hero-image" alt="image-homepage-hero" srcset="
+images/homepage/mobile/image-homepage-hero.jpg 311w,
+images/homepage/mobile/image-homepage-hero@2x.jpg 622w,
+images/homepage/tablet/image-homepage-hero.jpg 688w,
+images/homepage/tablet/image-homepage-hero@2x.jpg 1376w,
+images/homepage/desktop/image-homepage-hero.jpg 1110w,
+images/homepage/desktop/image-homepage-hero@2x.jpg 2220w" sizes="
+(max-width: 320px) 311px,
+(max-width: 480px) 622px,
+(max-width: 720px) 688px,
+(max-width: 768px) 1376px,
+(max-width: 1024px) 1110px,
+(min-width: 1025px) 2220px
+">
+```
+**Used Percentages to get correct layout**
+```css
+.contactMeSection h2 {
+  width: 33%;
+}
+.contactMeBtn {
+  width: 33%;
+}
+```
+**First burger menu with JS functionality**
+```js
+openMenu.addEventListener('click', () => {
+  navBar.style.display = "flex"
+  openMenu.style.display = "none"
+  closeMenu.style.display = "inline"
+});
+```
 
-- View the optimal layout for each page depending on their device's screen size
-- See hover states for all interactive elements throughout the site
-- Click the "About Me" call-to-action on the homepage and have the screen scroll down to the next section
-- Receive an error message when the contact form is submitted if:
-  - The `Name`, `Email Address` or `Message` fields are empty should show "This field is required"
-  - The `Email Address` is not formatted correctly should show "Please use a valid email address"
+**Proud of Adding JS to dynamically add hr tag to parent element and add an addEventListener to document if user expands viewport width above 800px**
+```js
+const mediaQueryList = window.matchMedia('(min-width: 50em)');
 
-If you would like to make your contact form actually send you the data, you could use a service like [Formspree](https://formspree.io/) to hook it up.
+function addHr() {
+  const getHrClass = document.querySelector('.addHr');
+  const createHr = document.createElement('hr');
+  const anchorContact = document.getElementById('anchorContact');
+  createHr.style.cssText = "width: 33%; margin: 0 auto;";
+  getHrClass.insertBefore(createHr, anchorContact);
+}
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+function handleDeviceChange(e) {
+  if (e.matches) {
+    console.log('JS Media Query Matched: resolution above 800px, add HR Tag');
+    addHr();
+  } else {
+    console.log('Media Query: lower then 799px, Does not add HR Tag')
+  }
+}
+mediaQueryList.addEventListener('change', handleDeviceChange);
+handleDeviceChange(mediaQueryList);
+```
 
-## Where to find everything
+If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
 
-Your task is to build out the project to the design file provided. We provide both Sketch and Figma versions of the design, so you can choose which tool you prefer to use. You can download the design file on the platform. **Please be sure not to share them with anyone else.** The design download comes with a `README.md` file as well to help you get set up.
+### Continued development
 
-All the required assets for this project are in the `/assets` folder. The assets are already exported for the correct screen size and optimized. Some images are reusable at multiple screen sizes. So if you don't see an image in a specific folder, it will typically be in another folder for that page.
+I want to continue using JS to manipulate the DOM and adding JS functionality to every website.
 
-The design system in the design file will give you more information about the various colors, fonts, and styles used in this project.
+### Useful resources
 
-## Building your project
+- [w3schools](https://www.w3schools.com/cssref/pr_class_display.asp) - Helped me understand display property fully.
+- [allyjs.io](https://allyjs.io/tutorials/hiding-elements.html) - This helped me with hiding elements in the document using JS.
+- [formsubmit.io](https://formsubmit.co/documentation) - Helped me with HTML5 Forms.
+-[css-tricks.com](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) - Helped me understand Flexbox more.
+- [standardista.com](http://www.standardista.com/px-to-rem-conversion-if-root-font-size-is-16px/) - Used this site to convert px to rem for proper scaling of font. Put root font size in :root
+- [css-tricks.com](https://css-tricks.com/a-guide-to-the-responsive-images-syntax-in-html/#using-srcset) - Learned to use srcset for responsive images, specifically with different pixel densities.
+- [freecodecamp.org](https://www.freecodecamp.org/news/css-media-queries-breakpoints-media-types-standard-resolutions-and-more/) - Helped me understand breakpoints,media queries, and common viewportwidths better.
+- [css-tricks.com](https://css-tricks.com/examples/hrs/) - Helped me style hr element with CSS.
+- [css-tricks.com](https://css-tricks.com/a-complete-guide-to-links-and-buttons/#buttons-heading-2) - Learned alot more about styling buttons, anchor states, links...
+- [css-tricks.com](https://css-tricks.com/working-with-javascript-media-queries/) - Helped me add JavaScript Media query to dynamically add elements to document. Added listener to mediaQuery for device change.
+- [Youtube.com](https://www.youtube.com/watch?v=XOz8RCiPbx8) - Helped me understand .insertBefore() method to place child element before another child element.
+-[codepen.io](https://codepen.io/sosuke/pen/Pjoqqp) - used this to add filter to SVG to change logo to white.
+-[mozilladevelopers.github.io](https://mozilladevelopers.github.io/playground/css-grid) - Helped to build the grid for the project pages.
+-[developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList) - Helped me update JS method to .addEventListener.
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
-
-1. Separate the `starter-code` from the rest of this project and rename it to something meaningful for you. Initialize the codebase as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/). **⚠️ IMPORTANT ⚠️: There are already a couple of `.gitignore` files in this project. Please do not remove them or change the content of the files. If you create a brand new project, please use the `.gitignore` files provided in your new codebase. This is to avoid the accidental upload of the design files to GitHub. With these premium challenges, please be sure not to share the design files in your GitHub repo. Thanks!**
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
-
-## Deploying your project
-
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
-
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
-
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
-
-## Create a custom `README.md`
-
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
-
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
-
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
-
-## Submitting your solution
-
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
-
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
-
-**⚠️ IMPORTANT ⚠️: With these premium challenges, please be sure not to upload the design files to GitHub when you're submitting to the platform and sharing it around. If you've created a brand new project, the easiest way to do that is to copy across the `.gitignore` provided in this starter project.**
-
-## Sharing your solution
-
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-**Have fun building!** 🚀
+## Author
+- Website - [Chris Wolf](https://christopherrc819.github.io/)
