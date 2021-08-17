@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frontend Mentor | Minimalist Portfolio">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="stylesheet" href="src/styles.css">
+  <script src="src/app.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@400;700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Minimalist Portfolio</title>
+</head>
+
+<body>
+  <header>
+    <img src="images/logo.svg" alt="logo">
+    <nav>
+      <img id="burgerBtn" class="burgerBtn" src="images/icons/hamburger.svg" alt="hamburger">
+      <img class="closeMenu" id="closeMenu" src="images/icons/close.svg" alt="close Button">
+      <div class="nav-bar" id="mobileMenu">
+        <ul class="mainMenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a style="color: #5FB4A2;" href="contact.html">Contact Me</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <section class="thankYouSection">
+    <div id="results"></div>
+    <p>Thank you, I will get back to you ASAP!</p>
+    <a href="/"><p>Go Back</p></a>
+  </section>
+  <section class="contactMeSection addHr">
+    <h2>Interested in doing a project together?</h2>
+    <a id="anchorContact" class="clearStyleButton contactMeBtn" href="contact.html">
+      Contact Me
+    </a>
+  </section>
+  <div class="footer-wrap">
+    <footer>
+      <div class="footer__container">
+        <img class="white_filter" src="images/logo.svg" alt="logo">
+        <nav>
+          <div class="nav-bar-footer">
+            <ul class="mainMenu_footer">
+              <li><a href="#">Home</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a style="color: #5FB4A2;" href="contact.html">Contact Me</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="social-icons white_filter">
+        <a href="#"><img src="images/icons/github.svg" alt="gitHub-icon"></a>
+        <a href="#"><img src="images/icons/linkedin.svg" alt="linkedin-icon"></a>
+        <a href="#"><img src="images/icons/twitter.svg" alt="twitter-icon"></a>
+      </div>
+    </footer>
+  </div>
+  <script>
+    const resultsList = document.getElementById('results');
+    new URLSearchParams(window.location.search).forEach((value, name) => {
+      resultsList.append(`${name}: ${value}`)
+      resultsList.append(document.createElement('br'))
+    })
+  </script>
+</body>
+
+</html>

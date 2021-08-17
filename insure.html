@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Frontend Mentor | Minimalist Portfolio">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="stylesheet" href="src/styles.css">
+  <script src="src/app.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@400;700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Minimalist Portfolio</title>
+</head>
+
+<body>
+  <header>
+    <img src="images/logo.svg" alt="logo">
+    <nav>
+      <img id="burgerBtn" class="burgerBtn" src="images/icons/hamburger.svg" alt="hamburger">
+      <img class="closeMenu" id="closeMenu" src="images/icons/close.svg" alt="close Button">
+      <div class="nav-bar" id="mobileMenu">
+        <ul class="mainMenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a style="color: #5FB4A2;" href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact Me</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <div class="projectHero_image_wrap">
+    <img class="projectHero_image" alt="managePage_hero_img" srcset="
+    images/detail/mobile/image-insure-hero.jpg 311w,
+    images/detail/mobile/image-insure-hero@2x.jpg 622w,
+    images/detail/tablet/image-insure-hero.jpg 689w,
+    images/detail/tablet/image-insure-hero@2x.jpg 1378w,
+    images/detail/desktop/image-insure-hero.jpg 1110w,
+    images/detail/desktop/image-insure-hero@2x.jpg 2220w
+    " sizes="auto">
+  </div>
+  <div class="projectContent_wrap">
+    <section class="projectHero_section">
+      <hr>
+      <div class="projectHero_content">
+        <h2>Insure</h2>
+        <p>This was a small project which mostly consisted of HTML and CSS. I built a
+          fully-responsive landing page. The only JavaScript this project required was
+          to enable the toggling of the mobile navigation.</p>
+        <p>Interaction Design / Front End Development<br>
+          HTML / CSS / JS
+        </p>
+        <a class="clearStyleButton viewWebsiteBtn" href="#">View Website</a>
+      </div>
+      <hr>
+    </section>
+    <section class="projectBackground_section">
+      <h3>Project Background</h3>
+      <p>This project was a front-end challenge from Frontend Mentor. It’s a platform that
+        enables you to practice building websites to a design and project brief. Each challenge
+        includes mobile and desktop designs to show how the website should look at different
+        screen sizes. Creating these projects has helped me refine my workflow and solve
+        real-world coding problems. I’ve learned something new with each project, helping
+        me to improve and adapt my style.</p>
+      <h3>Static Previews</h3>
+      <img class="projectStaticImgs" alt="static-preview-image-1" srcset="
+      images/detail/mobile/image-insure-preview-1.jpg 313w,
+      images/detail/mobile/image-insure-preview-1@2x.jpg 626w,
+      images/detail/tablet/image-insure-preview-1.jpg 689w,
+      images/detail/tablet/image-insure-preview-1@2x.jpg 1378w,
+      images/detail/desktop/image-insure-preview-1.jpg 635w,
+      images/detail/desktop/image-insure-preview-1@2x.jpg 1270w" sizes="auto">
+
+      <img class="projectStaticImgs" alt="static-preview-image-2" srcset="
+      images/detail/mobile/image-insure-preview-2.jpg 313w,
+      images/detail/mobile/image-insure-preview-2@2x.jpg 626w,
+      images/detail/tablet/image-insure-preview-2.jpg 689w,
+      images/detail/tablet/image-insure-preview-2@2x.jpg 1378w,
+      images/detail/desktop/image-insure-preview-2.jpg 635w,
+      images/detail/desktop/image-insure-preview-2@2x.jpg 1270w" sizes="auto">
+    </section>
+  </div>
+  <section class="projectNav">
+    <div class="projectNav_borderleft">
+      <a href="bookmark.html">
+        <div class="projectNav_text navLeftText">
+          <h3>Bookmark</h3>
+          <p>Previous Project</p>
+        </div>
+      </a>
+    </div>
+    <div class="projectNav_borderright">
+      <a href="fylo.html">
+        <div class="projectNav_text navRightText">
+          <h3>Fylo</h3>
+          <p>Next Project</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="contactMeSection addHr">
+    <h2>Interested in doing a project together?</h2>
+    <a id="anchorContact" class="clearStyleButton contactMeBtn" href="contact.html">
+      Contact Me
+    </a>
+  </section>
+  <div class="footer-wrap">
+    <footer>
+      <div class="footer__container">
+        <img class="white_filter" src="images/logo.svg" alt="logo">
+        <nav>
+          <div class="nav-bar-footer">
+            <ul class="mainMenu_footer">
+              <li><a href="#">Home</a></li>
+              <li><a style="color: #5FB4A2;" href="portfolio.html">Portfolio</a></li>
+              <li><a href="contact.html">Contact Me</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="social-icons white_filter">
+        <a href="#"><img src="images/icons/github.svg" alt="gitHub-icon"></a>
+        <a href="#"><img src="images/icons/linkedin.svg" alt="linkedin-icon"></a>
+        <a href="#"><img src="images/icons/twitter.svg" alt="twitter-icon"></a>
+      </div>
+    </footer>
+  </div>
+  <script>
+    const mediaQueryList = window.matchMedia('(min-width: 50em)');
+
+    function addHr() {
+      const getHrClass = document.querySelector('.addHr');
+      const createHr = document.createElement('hr');
+      const anchorContact = document.getElementById('anchorContact');
+      createHr.style.cssText = "width: 33%; margin: 0 auto;";
+      getHrClass.insertBefore(createHr, anchorContact);
+    }
+
+    function handleDeviceChange(e) {
+      if (e.matches) {
+        console.log('JS Media Query Matched: resolution above 800px, add HR Tag');
+        addHr();
+      } else {
+        console.log('Media Query: lower then 799px, Does not add HR Tag')
+      }
+    }
+    mediaQueryList.addEventListener('change', handleDeviceChange);
+    handleDeviceChange(mediaQueryList);
+  </script>
+</body>
+
+</html>

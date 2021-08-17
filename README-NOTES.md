@@ -2,48 +2,16 @@
 
 ## Table of contents
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
+- [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
-## Overview
-
-### The challenge
-
-Users should be able to:
-
-- View the optimal layout for each page depending on their device's screen size
-- See hover states for all interactive elements throughout the site
-- Click the "About Me" call-to-action on the homepage and have the screen scroll down to the next section
-- Receive an error message when the contact form is submitted if:
-  - The `Name`, `Email Address` or `Message` fields are empty should show "This field is required"
-  - The `Email Address` is not formatted correctly should show "Please use a valid email address"
-
-### Screenshot
-
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
@@ -57,20 +25,35 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - CSS Grid
 - Mobile-first workflow
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
-
 ### What I learned
 
 Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
 
 To see how you can add code snippets, see below:
-
+**Proud of this responsive Image**
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<img class="hero-image" alt="image-homepage-hero" srcset="
+images/homepage/mobile/image-homepage-hero.jpg 311w,
+images/homepage/mobile/image-homepage-hero@2x.jpg 622w,
+images/homepage/tablet/image-homepage-hero.jpg 688w,
+images/homepage/tablet/image-homepage-hero@2x.jpg 1376w,
+images/homepage/desktop/image-homepage-hero.jpg 1110w,
+images/homepage/desktop/image-homepage-hero@2x.jpg 2220w" sizes="
+(max-width: 320px) 311px,
+(max-width: 480px) 622px,
+(max-width: 720px) 688px,
+(max-width: 768px) 1376px,
+(max-width: 1024px) 1110px,
+(min-width: 1025px) 2220px
+">
 ```
+**Used Percentages to get correct layout**
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+.contactMeSection h2 {
+  width: 33%;
+}
+.contactMeBtn {
+  width: 33%;
 }
 ```
 **First burger menu with JS functionality**
@@ -80,6 +63,30 @@ openMenu.addEventListener('click', () => {
   openMenu.style.display = "none"
   closeMenu.style.display = "inline"
 });
+```
+
+**Proud of Adding JS to dynamically add hr tag to parent element and add an addEventListener to document if user expands viewport width above 800px**
+```js
+const mediaQueryList = window.matchMedia('(min-width: 50em)');
+
+function addHr() {
+  const getHrClass = document.querySelector('.addHr');
+  const createHr = document.createElement('hr');
+  const anchorContact = document.getElementById('anchorContact');
+  createHr.style.cssText = "width: 33%; margin: 0 auto;";
+  getHrClass.insertBefore(createHr, anchorContact);
+}
+
+function handleDeviceChange(e) {
+  if (e.matches) {
+    console.log('JS Media Query Matched: resolution above 800px, add HR Tag');
+    addHr();
+  } else {
+    console.log('Media Query: lower then 799px, Does not add HR Tag')
+  }
+}
+mediaQueryList.addEventListener('change', handleDeviceChange);
+handleDeviceChange(mediaQueryList);
 ```
 
 If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
@@ -94,17 +101,16 @@ I want to continue using JS to manipulate the DOM and adding JS functionality to
 - [allyjs.io](https://allyjs.io/tutorials/hiding-elements.html) - This helped me with hiding elements in the document using JS.
 - [formsubmit.io](https://formsubmit.co/documentation) - Helped me with HTML5 Forms.
 -[css-tricks.com](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) - Helped me understand Flexbox more.
+- [standardista.com](http://www.standardista.com/px-to-rem-conversion-if-root-font-size-is-16px/) - Used this site to convert px to rem for proper scaling of font. Put root font size in :root
+- [css-tricks.com](https://css-tricks.com/a-guide-to-the-responsive-images-syntax-in-html/#using-srcset) - Learned to use srcset for responsive images, specifically with different pixel densities.
+- [freecodecamp.org](https://www.freecodecamp.org/news/css-media-queries-breakpoints-media-types-standard-resolutions-and-more/) - Helped me understand breakpoints,media queries, and common viewportwidths better.
+- [css-tricks.com](https://css-tricks.com/examples/hrs/) - Helped me style hr element with CSS.
+- [css-tricks.com](https://css-tricks.com/a-complete-guide-to-links-and-buttons/#buttons-heading-2) - Learned alot more about styling buttons, anchor states, links...
+- [css-tricks.com](https://css-tricks.com/working-with-javascript-media-queries/) - Helped me add JavaScript Media query to dynamically add elements to document. Added listener to mediaQuery for device change.
+- [Youtube.com](https://www.youtube.com/watch?v=XOz8RCiPbx8) - Helped me understand .insertBefore() method to place child element before another child element.
+-[codepen.io](https://codepen.io/sosuke/pen/Pjoqqp) - used this to add filter to SVG to change logo to white.
+-[mozilladevelopers.github.io](https://mozilladevelopers.github.io/playground/css-grid) - Helped to build the grid for the project pages.
+-[developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList) - Helped me update JS method to .addEventListener.
 
 ## Author
-
 - Website - [Chris Wolf](https://christopherrc819.github.io/)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
