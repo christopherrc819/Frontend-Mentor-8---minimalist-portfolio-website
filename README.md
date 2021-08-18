@@ -12,7 +12,8 @@
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Live-Site](https://frontend-mentor-8-minimalist-portfolio-website.vercel.app/)
+- GitHub: [GitHub](https://github.com/christopherrc819/Frontend-Mentor-8---minimalist-portfolio-website)
 
 ## My process
 
